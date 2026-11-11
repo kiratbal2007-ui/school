@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baba Deep Singh ji Shaheed Public School</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+body { background: #f5f7fa; color: #1a1a2e; line-height: 1.6; }
+.top-bar { background: linear-gradient(90deg, #0f2c59, #1a4a8a); color: white; text-align: center; padding: 10px 20px; font-size: 14px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+header { background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 1000; }
+.header-container { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 25px; gap: 20px; flex-wrap: wrap; }
+.logo-area { display: flex; align-items: center; gap: 14px; }
+.logo { width: 58px; height: 58px; background: linear-gradient(135deg, #0f2c59, #1a4a8a); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; }
+.school-name h1 { font-size: 20px; color: #0f2c59; line-height: 1.25; font-weight: 700; }
+.school-name span { color: #e6a817; }
+nav { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+nav a { text-decoration: none; color: #333; font-size: 14.5px; font-weight: 500; padding: 8px 14px; border-radius: 8px; transition: 0.25s; cursor: pointer; }
+nav a:hover, nav a.active { background: #eef3fb; color: #0f2c59; }
+.apply-btn { background: linear-gradient(135deg, #e6a817, #f0c14b) !important; color: #0f2c59 !important; font-weight: 700 !important; }
+.hero { background: linear-gradient(135deg, rgba(15,44,89,0.88), rgba(26,74,138,0.82)), url('images/welcome.jpg.jpeg') center/cover no-repeat; color: white; padding: 100px 20px 90px; text-align: center; }
+.hero-badge {
+background: rgba(255,255,255,0.12);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+display: inline-block;
+padding: 8px 20px;
+border-radius: 30px;
+font-size: 13px;
+margin-bottom: 25px;
+letter-spacing: 1.2px;
+border: 1px solid rgba(255,255,255,0.25);
+color: white;
+}
+.hero h2 { font-size: 48px; margin-bottom: 18px; line-height: 1.15; font-weight: 800; }
+.hero h2 .yellow { color: #f0c14b; }
+.hero p { font-size: 18px; margin-bottom: 35px; max-width: 700px; margin-left: auto; margin-right: auto; }
+.btn { padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; display: inline-block; }
+.btn-primary { background: linear-gradient(135deg, #f0c14b, #e6a817); color: #0f2c59; }
+.btn-secondary { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.7); }
+.stats { background: linear-gradient(90deg, #0f2c59, #1a4a8a); color: white; padding: 35px 20px; }
+.stats-container { max-width: 1150px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; text-align: center; }
+.stat-item h3 { font-size: 30px; color: #f0c14b; }
+section { padding: 70px 20px; }
+.container { max-width: 1150px; margin: 0 auto; }
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title h2 { font-size: 36px; color: #0f2c59; margin-bottom: 12px; }
+.section-title .line { width: 70px; height: 5px; background: linear-gradient(90deg, #e6a817, #f0c14b); margin: 0 auto; border-radius: 10px; }
+.about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.about-image { height: 380px; border-radius: 20px; background: url('images/school.jpg.jpeg') center/cover; box-shadow: 0 20px 40px rgba(15,44,89,0.15); position: relative; }
+.about-image::after { content: 'Since 1998'; position: absolute; bottom: 20px; left: 20px; background: #e6a817; color: #0f2c59; padding: 8px 18px; border-radius: 8px; font-weight: 700; }
+.messages { background: linear-gradient(180deg, #eef3fb 0%, #f5f7fa 100%); }
+.messages-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.message-card { background: white; padding: 35px; border-radius: 18px; box-shadow: 0 10px 30px rgba(15,44,89,0.08); border-top: 5px solid #0f2c59; }
+.message-card h4 { color: #0f2c59; font-size: 20px; }
+.message-card .role { color: #e6a817; font-weight: 600; font-size: 14px; display: block; margin: 6px 0 16px; }
+.vision-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+.vision-card { background: white; padding: 32px 25px; border-radius: 18px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: 0.3s; border-top: 5px solid #0f2c59; }
+.vision-card:hover { transform: translateY(-8px); box-shadow: 0 18px 35px rgba(15,44,89,0.12); }
+.vision-card h3 { color: #0f2c59; margin-bottom: 12px; }
+.gallery-row { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 10px; }
+.gallery-row .gallery-item { min-width: 260px; height: 180px; border-radius: 14px; background-size: cover; background-position: center; flex-shrink: 0; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+.contact-section { background: #0f2c59; color: white; padding: 60px 20px; }
+.contact-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.contact-box h3 { color: #f0c14b; margin-bottom: 16px; font-size: 18px; letter-spacing: 0.5px; }
+.contact-box p, .contact-box a { color: rgba(255,255,255,0.9); text-decoration: none; display: block; margin-bottom: 8px; font-size: 15px; line-height: 1.5; }
+.contact-box a:hover { color: #f0c14b; }
+footer { background: #0a1f3d; color: #8a9bb5; text-align: center; padding: 25px 20px; }
+footer strong { color: #f0c14b; }
+.page { display: none; }
+.page.active { display: block; }
+@media (max-width: 900px) {
+.hero h2 { font-size: 32px; }
+.about-content, .messages-grid { grid-template-columns: 1fr; }
+.header-container { flex-direction: column; text-align: center; }
+.contact-grid { grid-template-columns: 1fr; gap: 30px; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+<span>📞 +91 98722 48335</span>
+<span>✉️ bdsspublicschool0@gmail.com</span>
+</div>
+
+<header>
+<div class="header-container">
+<div class="logo-area">
+<div class="logo">🎓</div>
+<div class="school-name">
+<h1>Baba Deep Singh ji<br><span>Shaheed Public School</span></h1>
+</div>
+</div>
+<nav>
+<a onclick="showPage('home')" class="active">Home</a>
+<a onclick="showPage('about')">About Us</a>
+<a onclick="showPage('academic')">Academic</a>
+<a onclick="showPage('activities')">Activities</a>
+<a onclick="showPage('admission')">Admission</a>
+<a onclick="showPage('facilities')">Facilities</a>
+<a onclick="showPage('gallery')">Gallery</a>
+<a onclick="showPage('contact')">Contact Us</a>
+<a onclick="showPage('admission')" class="apply-btn">Apply Now</a>
+</nav>
+</div>
+</header>
+
+<!-- HOME -->
+<div id="home" class="page active">
+<section class="hero">
+<div class="hero-badge">ESTABLISHED 1998 • ASSOCIATED TO PSEB (CHANDIGARH) MOHALI</div>
+<h2>Welcome to Baba<br><span class="yellow">Deep Singh ji</span><br>Shaheed Public School</h2>
+<p>Nurturing young minds with quality education and strong moral values at Chawinda Devi (Near Kathunangal), Amritsar. Classes from Nursery to 10th.</p>
+<div class="hero-buttons">
+<a href="#" onclick="showPage('admission')" class="btn btn-primary">Apply for Admission →</a>
+<a href="#" onclick="showPage('about')" class="btn btn-secondary">Learn More</a>
+</div>
+</section>
+<div class="stats">
+<div class="stats-container">
+<div class="stat-item"><h3>1998</h3><p>ESTABLISHED</p></div>
+<div class="stat-item"><h3>Nursery – 10th</h3><p>CLASSES</p></div>
+<div class="stat-item"><h3>PSEB Mohali</h3><p>AFFILIATION</p></div>
+<div class="stat-item"><h3>Values + Learning</h3><p>FOCUS</p></div>
+</div>
+</div>
+<section>
+<div class="container">
+<div class="section-title"><h2>About Our School</h2><div class="line"></div></div>
+<div class="about-content">
+<div class="about-image"></div>
+<div class="about-text">
+<h3>A Trusted Institution Since 1998</h3>
+<p>Baba Deep Singh ji Shaheed Public School, Chawinda Devi (Near Kathunangal) Amritsar is a trusted institution dedicated to providing quality education and strong moral values to young learners.</p>
+<p>Established in 1998 under the leadership of President S. Ravinder Pal Singh, the school was founded with the vision of creating a nurturing environment where students can grow academically, socially and ethically.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="messages">
+<div class="container">
+<div class="section-title"><h2>Messages from Our Leadership</h2><div class="line"></div></div>
+<div class="messages-grid">
+<div class="message-card">
+<h4>S. Ravinder Pal Singh</h4>
+<span class="role">President</span>
+<p>Education is the most powerful tool that can transform a society and shape the future of a nation. When we established Baba Deep Singh ji Shaheed Public School in 1998, our dream was simple yet profound — to create a place where every child receives not only academic knowledge but also strong moral values, discipline, and character.</p>
+<p style="margin-top:12px;">Over the years, we have remained committed to providing a safe, nurturing, and inspiring environment where students can grow holistically. We believe that true education goes beyond textbooks. It builds confidence, compassion, and a sense of responsibility towards society.</p>
+</div>
+<div class="message-card">
+<h4>Mrs. Baljit Kaur Khalsa</h4>
+<span class="role">Principal</span>
+<p>Every child is unique and carries immense potential within them. At Baba Deep Singh ji Shaheed Public School, our dedicated teachers work tirelessly to create a joyful, safe, and inspiring learning environment where students feel valued and motivated to explore their abilities.</p>
+<p style="margin-top:12px;">We focus not only on academic excellence but also on character building, emotional strength, and life skills. Our aim is to prepare students so that they can face the challenges of life with courage, integrity, kindness, and confidence.</p>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="container">
+<div class="section-title"><h2>Our Vision & Mission</h2><div class="line"></div></div>
+<div class="vision-grid">
+<div class="vision-card"><div style="font-size:28px; margin-bottom:12px;">🎯</div><h3>Our Vision</h3><p>To create a nurturing environment where every student grows academically, socially, and ethically into a responsible and confident citizen of tomorrow.</p></div>
+<div class="vision-card"><div style="font-size:28px; margin-bottom:12px;">📚</div><h3>Our Mission</h3><p>To provide quality education with strong moral values and prepare students to face life’s challenges with courage, integrity, and excellence.</p></div>
+<div class="vision-card"><div style="font-size:28px; margin-bottom:12px;">💛</div><h3>Our Values</h3><p>Discipline, Integrity, Respect, Excellence, Compassion, and a strong commitment to continuous learning form the core of our school culture.</p></div>
+<div class="vision-card"><div style="font-size:28px; margin-bottom:12px;">🌟</div><h3>Our Goal</h3><p>To develop well-rounded students who excel in academics while also becoming kind, responsible, and socially aware individuals.</p></div>
+</div>
+</div>
+</section>
+<section>
+<div class="container">
+<div class="section-title"><h2>School Gallery</h2><div class="line"></div></div>
+<div class="gallery-row">
+<div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=500')"></div>
+<div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500')"></div>
+<div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1577896851231-70ef18881754?w=500')"></div>
+<div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=500')"></div>
+<div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=500&q=80')"></div>
+</div>
+</div>
+</section>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="page">
+<section>
+<div class="container">
+<div class="section-title"><h2>About Us</h2><div class="line"></div></div>
+<div class="about-content">
+<div class="about-image"></div>
+<div>
+<h3 style="color:#0f2c59; margin-bottom:15px;">Our History</h3>
+<p>Baba Deep Singh ji Shaheed Public School, Chawinda Devi (Near Kathunangal) Amritsar is a trusted institution dedicated to providing quality education and strong moral values to young learners. Established in 1998 under the leadership of President S. Ravinder Pal Singh, the school was founded with the vision of creating a nurturing environment where students can grow academically, socially and ethically.</p>
+<p style="margin-top:12px;">We are associated with PSEB (Chandigarh) Mohali and offer classes from Nursery to 10th standard.</p>
+</div>
+</div>
+<div style="margin-top:60px;">
+<div class="section-title"><h2>Our Vision & Mission</h2><div class="line"></div></div>
+<div class="vision-grid">
+<div class="vision-card"><div style="font-size:28px; margin-bottom:12px;">🎯</div><h3>Our Vision</h3><p>To create a nurturing environment where every student grows academically, socially, and ethically into a responsible and confident citizen of tomorrow.</p></div>
+<div class="vision-card"><div style="font-size:28px; margin-bottom:12px;">📚</div><h3>Our Mission</h3><p>To provide quality education with strong moral values and prepare students to face life’s challenges with courage, integrity, and excellence.</p></div>
+<div class="vision-card"><div style="font-size:28px; margin-bottom:12px;">💛</div><h3>Our Values</h3><p>Discipline, Integrity, Respect, Excellence, and Compassion form the foundation of everything we do.</p></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<!-- ACADEMIC -->
+<div id="academic" class="page">
+<section>
+<div class="container">
+<div class="section-title"><h2>Academics</h2><div class="line"></div></div>
+<p style="text-align:center; max-width:750px; margin:0 auto 30px;">Baba Deep Singh ji Shaheed Public School offers a well-structured academic program from <strong>Nursery to Class 10th</strong>, affiliated with PSEB (Chandigarh) Mohali.</p>
+<div class="vision-grid">
+<div class="vision-card"><h3>Nursery – UKG</h3><p>Play-based learning, language development, motor skills, and basic concepts in a joyful environment.</p></div>
+<div class="vision-card"><h3>Class 1 – 5</h3><p>Strong foundation in English, Mathematics, EVS, and moral education with activity-based teaching.</p></div>
+<div class="vision-card"><h3>Class 6 – 10</h3><p>PSEB curriculum with focus on Science, Mathematics, Social Studies, and languages. Regular assessments and board exam guidance.</p></div>
+</div>
+</div>
+</section>
+</div>
+
+<!-- ACTIVITIES -->
+<div id="activities" class="page">
+<section>
+<div class="container">
+<div class="section-title"><h2>Activities</h2><div class="line"></div></div>
+<p style="text-align:center; max-width:700px; margin:0 auto 30px;">We believe in the overall development of students through various co-curricular and sports activities.</p>
+<div class="vision-grid">
+<div class="vision-card"><h3>Sports</h3><p>Regular sports activities, annual sports day, and physical education classes.</p></div>
+<div class="vision-card"><h3>Cultural Programs</h3><p>Annual function, celebrations of festivals, and talent show programs.</p></div>
+<div class="vision-card"><h3>Clubs & Competitions</h3><p>Drawing, quiz, debate, and other competitions to encourage creativity and confidence.</p></div>
+</div>
+</div>
+</section>
+</div>
+
+<!-- ADMISSION -->
+<div id="admission" class="page">
+<section>
+<div class="container">
+<div class="section-title"><h2>Admission</h2><div class="line"></div></div>
+<div style="max-width:700px; margin:0 auto; background:white; padding:40px; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,0.06);">
+<p>Admissions are open for Nursery to Class 10th.</p>
+<p style="margin:15px 0;">Please contact the school office for admission forms, fee details, and required documents.</p>
+<p><strong>Contact:</strong><br>+91 98722 48335<br>+91 84276 60469<br>bdsspublicschool0@gmail.com</p>
+</div>
+</div>
+</section>
+</div>
+
+<!-- FACILITIES -->
+<div id="facilities" class="page">
+<section>
+<div class="container">
+<div class="section-title"><h2>Facilities</h2><div class="line"></div></div>
+<div class="vision-grid">
+<div class="vision-card"><h3>Smart Classrooms</h3><p>Well-ventilated classrooms with proper seating and learning aids.</p></div>
+<div class="vision-card"><h3>Library</h3><p>Collection of books to encourage reading habits among students.</p></div>
+<div class="vision-card"><h3>Playground</h3><p>Open space for sports and physical activities.</p></div>
+<div class="vision-card"><h3>Safe Environment</h3><p>Secure campus with caring staff and disciplined atmosphere.</p></div>
+</div>
+</div>
+</section>
+</div>
+
+<!-- GALLERY -->
+<div id="gallery" class="page">
+<section>
+<div class="container">
+<div class="section-title"><h2>School Gallery</h2><div class="line"></div></div>
+<p style="text-align:center; margin-bottom:30px; color:#555;">A glimpse of life and learning at our school.</p>
+<div class="gallery-row">
+<div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=500')"></div>
+<div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500')"></div>
+<div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1577896851231-70ef18881754?w=500')"></div>
+<div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=500')"></div>
+<div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=500&q=80')"></div>
+</div>
+</div>
+</section>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="page">
+<section>
+<div class="container">
+<div class="section-title"><h2>Contact Us</h2><div class="line"></div></div>
+<div style="max-width:650px; margin:0 auto; background:white; padding:40px; border-radius:18px; box-shadow:0 10px 30px rgba(0,0,0,0.08);">
+<p><strong>Baba Deep Singh Ji Shaheed Public School</strong></p>
+<p style="margin:10px 0;">Chawinda Devi (Near Kathunangal), Amritsar, Punjab</p>
+<p>Phone: +91 98722 48335</p>
+<p>Phone: +91 84276 60469</p>
+<p>Gmail: bdsspublicschool0@gmail.com</p>
+</div>
+</div>
+</section>
+</div>
+
+<!-- Shared Footer Contact -->
+<section class="contact-section">
+<div class="contact-grid">
+<div class="contact-box">
+<h3>CONTACT US</h3>
+<p>Baba Deep Singh Ji Shaheed Public School</p>
+<p>Chawinda Devi (Near Kathunangal), Amritsar</p>
+<p>Phone: +91 98722 48335</p>
+<p>Phone: +91 84276 60469</p>
+<p>Gmail: bdsspublicschool0@gmail.com</p>
+</div>
+<div class="contact-box">
+<h3>QUICK LINKS</h3>
+<a href="#" onclick="showPage('about')">About Us</a>
+<a href="#" onclick="showPage('activities')">Activities</a>
+<a href="#" onclick="showPage('admission')">Admission</a>
+<a href="#" onclick="showPage('facilities')">Facilities</a>
+<a href="#" onclick="showPage('gallery')">Gallery</a>
+</div>
+<div class="contact-box">
+<h3>LOCATION</h3>
+<p>Chawinda Devi</p>
+<p>(Near Kathunangal)</p>
+<p>Amritsar, Punjab</p>
+</div>
+</div>
+</section>
+
+<footer>
+<p>Thanks for visiting <strong>Baba Deep Singh ji Shaheed Public School</strong></p>
+<p style="margin-top:6px;">© 2026 Baba Deep Singh ji Shaheed Public School. All rights reserved.</p>
+</footer>
+
+<script>
+function showPage(pageId) {
+document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+document.getElementById(pageId).classList.add('active');
+document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+if (event && event.target) event.target.classList.add('active');
+window.scrollTo(0, 0);
+}
+</script>
+
+</body>
+</html>
